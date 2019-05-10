@@ -2,7 +2,6 @@ def features_maker(df, first_index=None, last_index=None, smootch_windows_size =
     if first_index == None or last_index == None:
         first_index = 0
         last_index = df.shape[0] - 1
-    
 
     smooth_feature_names = ['smooth_feature_{}_ws_{}'.format(i, window_size) for i, window_size in enumerate(smootch_windows_size)]
     for current_index in df.indexes.tolist():
