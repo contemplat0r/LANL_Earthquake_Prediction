@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+
+
 def features_maker(df, first_index=None, last_index=None, smootch_windows_size = (3, 5, 7)):
     if first_index == None or last_index == None:
         first_index = 0
@@ -52,4 +54,4 @@ def add_features(
             for i, e_idx in end_indexes:
                 end_smootch_features_value.append(df[e_idx]['acoustic_data'] - df.iloc[last_index - window_size:last_index]['acoustic_data'].mean())
                 sample_df.iloc[sample_df.shape[0] - i][feature_name] = df[e_idx]['acoustic_data'] - df.iloc[first_index:first_index + window_size]['acoustic_data'].mean()
-
+    return sample_df
